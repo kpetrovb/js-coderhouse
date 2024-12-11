@@ -25,16 +25,28 @@
         .ocultar-elemento {
             display: none;
         }
+
+        .controladorElegido {
+            background-color: greenyellow;
+        }
+
+        .controladorNoApto {
+            background-color: red;
+        }
+
+        .alertaNegativa {
+            color: red;
+        }
     </style>
 
 </head>
 <body>
     <h1>Cotización Helper</h1>
-    <h1>CONTINUA EN DESARROLLO, PRONTO ESTARÁ DISPONIBLE</h1>
+    
     <h3>Configuración del Stock y Proyecto</h3>
     <p> Actualice el stock de los controladores, editando el numero directamente en la tabla.
         Luego complete el formulario con los puntos que se requieren en el proyecto.
-        Finalizado el procesamiento, se marcará el controlador optimo para el proyecto.
+        Finalizado el procesamiento, se marcará en verde el controlador optimo para el proyecto.
         En el caso que ningun controlador satisfaga las necesidades, se pintará todo de rojo.
     </p>
 
@@ -51,7 +63,16 @@
         </tbody>
     </table>
 
+    <h4 id="competenciaExcedida" class="alertaNegativa"></h4>
 
+    <form id="projectConfig" style="margin-top: 1rem">
+        <input type="text" id="inputTotal" placeholder="Entradas/Salidas Totales" />
+        <input type="text" id="inputDo" placeholder="Salidas Digitales" />
+        <input type="text" id="inputBooking" placeholder="Procentaje de Reserva" />
+    
+        <button type="submit">Analizar</button>
+    </form>
+    
 
     <h3>Objetivo:</h3>
     <p>
@@ -69,6 +90,7 @@
             <li>Resultado del controlador individual en función de la cantidad de puntos ingresada.</li>
         </ul>
     </p>
+
     <h4>Pre-Entrega 2</h4>
     <p></p>
         <ul>
@@ -76,6 +98,16 @@
             <li>Selección del controlador considerando el stock de los mismos.</li>
             <li>Despues de determinar el controlador requerido para el proyecto, la aplicación lo descuenta automaticamente del stock disponible.</li>
             <li>Re-programación de la primera entrega utilizando: Funciones, Clases, Vectores de Objetos, Funciones de Orden Superior.</li>
+        </ul>
+    </p>
+
+    <h4>Pre-Entrega 3</h4>
+    <p></p>
+        <ul>
+            <li>######Ingreso de cantidad de controladores en stock disponibles.</li>
+            <li>######Selección del controlador considerando el stock de los mismos.</li>
+            <li>######Despues de determinar el controlador requerido para el proyecto, la aplicación lo descuenta automaticamente del stock disponible.</li>
+            <li>######Re-programación de la primera entrega utilizando: Funciones, Clases, Vectores de Objetos, Funciones de Orden Superior.</li>
         </ul>
     </p>
 
