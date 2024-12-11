@@ -60,7 +60,6 @@ function renderizarTabla ()
         const tdDigital     = document.createElement("td");
         const tdCantidad    = document.createElement("td");
 
-        const arrLS = obtenerDeLS("ListaControladores")
         
         tdNombre.innerText      = `${controllerArr[i].nombre}`;
         tdUniversal.innerText   = `${controllerArr[i].universal}`;
@@ -69,7 +68,7 @@ function renderizarTabla ()
         const spanCantidad = document.createElement("span");
         spanCantidad.innerText  = `${controllerArr[i].cantidad}`;
         spanCantidad.addEventListener("click", () => {
-            clickSpanCantidad(tdCantidad, spanCantidad, controllerArr[i]);            
+            clickSpanCantidad(tdCantidad, spanCantidad, controllerArr[i]);           
         });
 
         tdCantidad.append(spanCantidad);
@@ -98,9 +97,12 @@ function clickSpanCantidad(td, span, controller)
     span.className = "ocultar-elemento";
 }
 
-function selectChosen (chosenControllersArr)
+function selectChosen ()
 {
-    if (chosenControllersArr.length == 0)
+    //Levanto el array desde local storage
+    const arrLS = obtenerDeLS("ControladoresAptos");
+
+    if (arrLS.length == 0)
         {
             //
             const tag = document.getElementById("competenciaExcedida");
@@ -110,21 +112,21 @@ function selectChosen (chosenControllersArr)
             tag.innerText = ""
             for (el of controllerArr)
             {
-                if (el.nombre === chosenControllersArr[0].nombre) 
+                if (el.nombre === arrLS[0].nombre) 
                 {    
                     el.cantidad--;
                 
                     renderizarTabla();
                     //Aca necesito encontrar el td correspondiente al controlador buscado..
                     const finalTable = document.getElementById("tbodyControladores");
-                    console.log(finalTable);
+                    //console.log(finalTable);
                     const filas = finalTable.querySelectorAll("tr"); //Levanto todos los tr
 
                     for (el of filas)
                     {
                         console.log(el);
                         const td = el.querySelector ("td");
-                        if (td.textContent === chosenControllersArr[0].nombre)
+                        if (td.textContent === arrLS[0].nombre)
                         {
                             const tdOfChosen = el.querySelectorAll ("td").forEach(celda => {
                                 celda.className = "controladorElegido";
@@ -145,7 +147,6 @@ function selectChosen (chosenControllersArr)
 
                 }
             }
-            console.log (chosenControllersArr[0]);
         }
 }
 
@@ -194,9 +195,12 @@ function analizar (evt)
         return 0;
     });
 
+    //Luego de hacer todo el analisis, mando el array de controladores aptos al Local Storage
+    guardarEnLS("ControladoresAptos", chosenControllersArr);
+
     //El controlador elegido es el primer elemento del array doblemente filtrado
     //Valido que algun controlador cumpla con las condiciones.
-    selectChosen(chosenControllersArr);
+    selectChosen();
 }
 
 /**
