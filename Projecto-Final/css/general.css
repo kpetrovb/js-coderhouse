@@ -1,0 +1,88 @@
+table, th, td {
+    border: 1px solid black;
+    padding: 0.3rem;
+}
+
+
+table {
+    margin-top: 1rem;
+}
+
+.cuadrado {
+    width: 50px;
+    height: 50px;
+    background: red;
+}
+
+.ocultar-elemento {
+    display: none;
+}
+
+.controladorElegido {
+    background-color: greenyellow;
+}
+
+.controladorNoApto {
+    background-color: red;
+}
+
+.alertaNegativa {
+    color: red;
+}
+
+.pageTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#hora {
+    font-size: 1.2rem;
+    color: rgb(34, 0, 169);
+}
+
+.tab-container {
+    max-width: 1600px;
+    margin: 20px auto;
+    }
+
+    /* Estilos de navegación */
+        nav.tab-navigation {
+        display: flex;
+        border-bottom: 2px solid #ccc;
+        justify-content: space-around;
+    }
+
+    nav.tab-navigation a {
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        padding: 10px;
+        color: #555;
+        background: #f1f1f1;
+        border: 1px solid transparent;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    nav.tab-navigation a.active {
+        background: #fff;
+        border-bottom: 2px solid #007BFF;
+        color: #007BFF;
+        font-weight: bold;
+    }
+
+    nav.tab-navigation a:hover {
+        background: #ddd;
+    }
+
+    /* Contenido de las pestañas */
+    .tab-content {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
